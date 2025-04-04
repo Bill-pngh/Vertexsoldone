@@ -1,0 +1,26 @@
+/* Resets and base fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #0a0e23; /* Fallback if BG image fails */
+  color: #ffffff;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling (for WebKit browsers) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #6E45C7; /* Solana purple */
+  border-radius: 4px;
+}
