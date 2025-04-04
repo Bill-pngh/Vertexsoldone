@@ -1,0 +1,36 @@
+/* Base button */
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+/* Primary button (e.g., Snipe Tokens) */
+.button-primary {
+  background: linear-gradient(90deg, var(--solana-purple), #8E55FF);
+  color: white;
+  box-shadow: 0 4px 16px rgba(110, 69, 199, 0.3);
+}
+
+.button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(110, 69, 199, 0.4);
+}
+
+/* Bottom nav buttons */
+.nav-button {
+  background: var(--bg-light);
+  color: var(--text-secondary);
+}
+
+.nav-button.active {
+  color: var(--solana-teal);
+  border-top: 2px solid var(--solana-teal);
+}
