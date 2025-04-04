@@ -1,0 +1,65 @@
+{
+  "name": "vertexsol",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "nodemon server/index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "start": "node server/index.js",
+    "migrate": "node server/db/migrations/run-migrations.js",
+    "lint": "eslint . --ext .js,.jsx",
+    "test": "jest --watchAll"
+  },
+  "dependencies": {
+    // Core
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "pg": "^8.11.3",
+
+    // Security
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^6.7.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+
+    // Crypto
+    "crypto-js": "^4.1.1",
+    "@solana/web3.js": "^1.84.0",
+
+    // Data
+    "axios": "^1.5.0",
+    "node-cache": "^5.1.2"
+  },
+  "devDependencies": {
+    // Development
+    "nodemon": "^3.0.2",
+    "concurrently": "^8.2.1",
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-react": "^7.33.2",
+
+    // Testing
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
