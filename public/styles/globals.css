@@ -54,3 +54,13 @@ body {
   color: var(--solana-teal);
   margin: var(--spacing-sm) 0;
 }
+
+.app-container {
+  position: relative;
+  max-width: 430px; /* Mobile-first design */
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+}
