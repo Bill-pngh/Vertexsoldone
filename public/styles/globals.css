@@ -1,24 +1,70 @@
+/* ==================== */
+/* CSS VARIABLES (Theme) */
+/* ==================== */
+:root {
+  /* Colors */
+  --solana-purple: #6E45C7;
+  --solana-teal: #00FFA3;
+  --bg-dark: #0a0e23;
+  --bg-light: #1A1F3D;
+  --text-primary: #ffffff;
+  --text-secondary: #A0A3C4;
+  --error-red: #FF4D4D;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  
+  /* Shadows */
+  --shadow-popup: 0 8px 32px rgba(110, 69, 199, 0.25);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+}
+
 /* ================ */
 /* BASE & RESETS */
 /* ================ */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--bg-dark); /* Using CSS variable */
+  background-color: var(--bg-dark);
   color: var(--text-primary);
+  min-height: 100vh;
   overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* ================ */
+/* INTERACTIVE ELEMENTS */
+/* ================ */
+button,
+a {
+  min-width: 44px;
+  min-height: 44px; /* Accessible tap targets */
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--solana-teal);
+  outline-offset: 3px;
 }
 
 /* ================ */
@@ -26,6 +72,10 @@ body {
 /* ================ */
 ::-webkit-scrollbar {
   width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-light);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -40,14 +90,13 @@ body {
   position: relative;
   max-width: 430px; /* Mobile-first */
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   background: var(--bg-dark);
-  color: var(--text-primary);
 }
 
 .page-container {
-  padding: 20px;
+  padding: var(--spacing-lg);
   min-height: 100vh;
   padding-bottom: 80px; /* Space for nav bar */
 }
@@ -55,7 +104,7 @@ body {
 /* ================ */
 /* COMPONENTS */
 /* ================ */
-/* Snipe Button */
+/* Snipe Button Container */
 .snipe-button-container {
   position: fixed;
   top: 50%;
@@ -71,11 +120,18 @@ body {
   padding: var(--spacing-md);
   margin: var(--spacing-md) 0;
   border-left: 4px solid var(--solana-teal);
+  transition: var(--transition-fast);
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-popup);
 }
 
 /* Balance Display */
 .balance-display {
   text-align: center;
+  padding: var(--spacing-lg);
 }
 
 .sol-amount {
@@ -93,7 +149,25 @@ body {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================ */
+/* ANIMATIONS */
+/* ================ */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
 }
 
 /* ================ */
@@ -105,7 +179,18 @@ body {
   }
   
   .page-container {
-    padding: 15px;
+    padding: var(--spacing-md);
     padding-bottom: 70px;
+  }
+  
+  .sol-amount {
+    font-size: 2rem;
+  }
+}
+
+/* Tablet and above */
+@media (min-width: 768px) {
+  .feature-card {
+    padding: var(--spacing-lg);
   }
 }
