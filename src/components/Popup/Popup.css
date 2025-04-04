@@ -1,0 +1,8 @@
+.popup-overlay {
+  /* Styles from public/styles/components/popups.css */
+}
+
+.popup-content {
+  background: url('/images/ui/popup-bg.png');
+  /* Additional styles */
+}
